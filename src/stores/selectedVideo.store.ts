@@ -28,7 +28,6 @@ function hasAlreadyWatchedVideo(videoId: string): boolean {
 function clearWatchedVideosFromLocalStorage(): void {
 	localStorage.removeItem(watchedVideosLocalStorageKey);
 }
-
 /*
  * LocalStorage methods -- END --
  */
