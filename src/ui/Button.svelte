@@ -1,10 +1,16 @@
 <script lang="ts">
-	function displayVideo() {
-		alert('u a bitch');
+	import { availableVideos } from '$lib/constants';
+	import { selectRandomElementFromArray } from '$lib/utils/array';
+	import { addWatchedVideoToLocalStorage, selectedVideoStore } from '../stores/selectedVideo.store';
+
+	function selectRandomVideo() {
+		const videoToWatch = selectRandomElementFromArray<string>(availableVideos);
+		selectedVideoStore.set(videoToWatch);
+		addWatchedVideoToLocalStorage(videoToWatch);
 	}
 </script>
 
-<button on:click={displayVideo}>Stop <br />Simping</button>
+<button on:click={selectRandomVideo}>Stop <br />Simping</button>
 
 <style>
 	button {
